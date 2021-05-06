@@ -45,7 +45,7 @@
 
 
 ### Цифровые метки
-* Скачайте файлы цифровых меток из папки [https://github.com/Uiopio/AGRO_NTI/tree/main/markers](https://github.com/Uiopio/AGRO_NTI/tree/main/markers)
+* Скачайте файлы цифровых меток из папки [AGRO_NTI/markers/](./markers)
 * Распечатайте метки на притере
 * Метку 0 из файла id_0_30x30.pdf обрезать и наклеить на отвал робота.
 ![наклеенная метка](./image/метка_отвал.jpg)
