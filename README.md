@@ -1,7 +1,7 @@
 # AGRO_NTI
 ## Описание
 Квадрокоптер пионер имеет на своем борту: плату управления, [плату подключения дополнительных модулей](https://pioneer-doc.readthedocs.io/ru/master/module/board.html),
-[модуль заъвата груза](https://pioneer-doc.readthedocs.io/ru/master/module/cargo.html) и [программируемую камеру OpenMV](https://pioneer-doc.readthedocs.io/ru/master/module/openMV.html).
+[модуль захвата груза](https://pioneer-doc.readthedocs.io/ru/master/module/cargo.html) и [программируемую камеру OpenMV](https://pioneer-doc.readthedocs.io/ru/master/module/openMV.html).
 
 
 В собранном виде все это выглядит вот так:
@@ -42,3 +42,11 @@
 
 * Запустите LUA скрипт на коптере зажав кнопку на базовой плате 
 ![кнопка](./image/кнопкаПУ.jpg)
+
+
+### Цифровые метки
+* [Скачайте файл с архивом](https://github.com/Uiopio/AGRO_NTI/blob/main/%D0%9C%D0%B5%D1%82%D0%BA%D0%B8_%D0%90%D0%B3%D1%80%D0%BE%D0%9D%D0%A2%D0%982021.zip)
+* Распечатайте метки на притере
+* Метку 0 из файла id_0_30x30.pdf обрезать и наклеить на отвал робота.
+![наклеенная метка](./image/метка_отвал.jpg)
+* Метки 1-3 обрезать по квадрату 200х200мм и приклеить к полигону согласно регламенту.
