@@ -1,15 +1,16 @@
 from pyb import UART, LED
 
-import sensor, lcd, image, time, utime, math
+import sensor, image, time, utime
 
 ledBlue = LED(2)
 ledBlue.on()
+
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.LCD)
 sensor.skip_frames(100)
+
 clock = time.clock()
-lcd.init()
 ledBlue.off()
 
 # параметры юарта
