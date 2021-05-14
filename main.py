@@ -1,6 +1,6 @@
 from pyb import UART, LED
 
-import sensor, image, time, utime
+import sensor, image, time
 
 ledBlue = LED(2)
 ledBlue.on()
@@ -10,7 +10,6 @@ sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.LCD)
 sensor.skip_frames(100)
 
-clock = time.clock()
 ledBlue.off()
 
 # параметры юарта
@@ -21,12 +20,11 @@ uart.init(9600, bits=8, parity=None, stop=1, timeout_char=1000) # init with give
 tag_families = 0
 tag_families |= image.TAG36H11 # comment out to disable this family (default family)
 
+# счетчик для мигания сигнального светодиода
 led_count = 0
-uart_count = 0
-uart_flag = True
+
 # рабочий цикл
 while(True):
-
     img = sensor.snapshot() # получение фотографии
     # поиск маркеров на фото
     for tag in img.find_apriltags(families=tag_families):
@@ -42,4 +40,5 @@ while(True):
 
     # Задержка
     time.sleep(0.1)
+
 
