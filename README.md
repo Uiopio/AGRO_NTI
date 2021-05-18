@@ -1,4 +1,5 @@
 # необходимое ПО и инструкция для конкурса АгроНТИ 2021 по направлению АгроКоптеры
+
 ## Описание
 Квадрокоптер пионер имеет на своем борту: плату управления, [плату подключения дополнительных модулей](https://pioneer-doc.readthedocs.io/ru/master/module/board.html),
 [модуль захвата груза](https://pioneer-doc.readthedocs.io/ru/master/module/cargo.html) и [программируемую камеру OpenMV](https://pioneer-doc.readthedocs.io/ru/master/module/openMV.html).
@@ -11,10 +12,14 @@
 ![плата + модули](./image/плата_модули.jpg)
 
 ## Подготовка
-1) Необходимо установить следующую программу:
+
+1) Сперва необходимо провести настройку [пульта управления](./pult_setting)
+
+
+2) Необходимо установить следующую программу:
 * [Pioneer Station](https://pioneer-doc.readthedocs.io/ru/master/programming/pioneer_station/pioneer_station_main.html)
 
-2) Необходимо скачать файлы:
+3) Необходимо скачать файлы:
 * **aruco_uart_led.lua**
 * **main.py**
 
