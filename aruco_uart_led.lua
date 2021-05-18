@@ -22,7 +22,7 @@ local uart = Uart.new(uartNum, baudRate, parity, stopBits) --  создание 
 
 local unpack = table.unpack
 -------------------------------------------------------------------------------------------------------------------------
-
+local flight = true -- флаг для определения состояния полета
 
 
 -------------------------------------------------------------------------------------------------------------------------
@@ -40,13 +40,6 @@ function callback(event)
        emergency()
 	end
    
-	if (event == Ev.COPTER_LANDED) then -- Если коптер совершил посадку
-		flight = false
-	end
-	
-	if (event == Ev.TAKEOFF_COMPLETE) then -- Если коптер взлетел
-		flight = true
-	end
 end
 -------------------------------------------------------------------------------------------------------------------------
 
@@ -100,7 +93,7 @@ end
 local id_is_on = {false, false, false, false}
 
 
-local flight = true -- флаг для определения состояния полета
+
 
 -- Хранение считанных светодиодов
 local correct_ID = {false, false, false, false}
@@ -177,7 +170,9 @@ local main = function () -- функция для периодического �
     end
 
     -- переключение магнита
-    _, _, _, _, _, _, _, ch8 = rc() -- считываем сигнал с 8 канала на пульте, значение от -1 до 1
+    
+    ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8 = rc()-- считываем сигнал на пульте
+
     if ch8 > 0 then
         magnet:set()
     end
@@ -186,17 +181,18 @@ local main = function () -- функция для периодического �
     end
 
     -- вывод считанных маркеров
-     _, _, _, _, _, ch6, _, _ = rc()
     if ch6 <= 0 then
         finish_flight_is_start = true
     end    
     if ch6 > 0 then
         finish_flight_is_start = false
+        count_finish_flight = 0
     end
     
 
+
     -- вывод соответствующего цвета для считанного маркера в течении 1 секунды
-    if (finish_flight_is_start == true) and (flight == false) then
+    if (finish_flight_is_start == true) then
         count_finish_flight = count_finish_flight + 1
         
         if (correct_ID[1] == true) and (count_finish_flight < (time_finish_flight / time_timer)) then
@@ -211,8 +207,9 @@ local main = function () -- функция для периодического �
             changeColor(0,0,intensity)
         elseif count_finish_flight>=4*(time_finish_flight / time_timer) then
             changeColor(0,0,0)
+            count_finish_flight = 0
             finish_flight_is_start = false
-			count_finish_flight = 0
+			
         end
         
     end
